@@ -24,9 +24,9 @@ $( document ).ready(function() {
     $.getJSON('/api/books/'+itemsRaw[this.id]._id, function(data) {
       comments = [];
       $.each(data.comments, function(i, val) {
-        comments.push('<li>' +val+ '</li>');
+        comments.push('<li style="text-align: center">' +val+ '</li>');
       });
-      comments.push('<br><form id="newCommentForm"><input style="width:300px" type="text" class="form-control" id="commentToAdd" name="comment" placeholder="New Comment"></form>');
+      comments.push('<br><form id="newCommentForm"><div class="md-form"><input style="width:300px" type="text" class="form-control text-white" id="commentToAdd" name="comment"><label class="text-white" for="commentToAdd">New Comment</label></div class="md-form"></form>');
       comments.push('<br><button class="btn btn-info addComment" id="'+ data._id+'">Add Comment</button>');
       comments.push('<button class="btn btn-danger deleteBook" id="'+ data._id+'">Delete Book</button>');
       $('#detailComments').html(comments.join(''));
@@ -52,7 +52,7 @@ $( document ).ready(function() {
       dataType: 'json',
       data: $('#newCommentForm').serialize(),
       success: function(data) {
-        comments.unshift(newComment); //adds new comment to top of list
+        comments.unshift("• "+newComment + "..."); //adds new comment to top of list
         $('#detailComments').html(comments.join(''));
       }
     });
