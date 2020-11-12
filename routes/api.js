@@ -91,8 +91,9 @@ module.exports = function (app) {
     }) 
     
     .post(function(req, res){
-      var bookid = req.params.id;
-      var comment = req.body.comment;
+      let bookid = req.params.id === "undefined" ? req.body.id : req.params.id;
+
+      let comment = req.body.comment;
 
       Book.findByIdAndUpdate(bookid, {$inc:{commentcount: 1}},function(err, incrementeddoc) {
         if (err) {

@@ -56,6 +56,8 @@ $( document ).ready(function() {
         $('#detailComments').html(comments.join(''));
       }
     });
+    alert('comment added')
+    location.reload();
   });
   
   $('#newBook').click(function() {
@@ -66,8 +68,10 @@ $( document ).ready(function() {
       data: $('#newBookForm').serialize(),
       success: function(data) {
         //update list
+       
       }
     });
+    location.reload();
   });
   
   $('#deleteAllBooks').click(function() {
@@ -80,7 +84,8 @@ $( document ).ready(function() {
         // update list
       }
     });
-    alert('All books deleted. Refresh the page.');
+    alert('all books deleted.');
+    location.reload();
   }); 
   
 });
