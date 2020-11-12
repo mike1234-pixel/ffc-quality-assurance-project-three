@@ -7,7 +7,6 @@ const dotenv      = require('dotenv').config();
 const helmet      = require('helmet');
 
 const apiRoutes         = require('./routes/api.js');
-const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
 const app = express();
@@ -18,7 +17,7 @@ app.use(cors({origin: '*'})); //USED FOR FCC TESTING PURPOSES ONLY!
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet.noCache());
+// app.use(helmet.noCache());
 app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 
 
@@ -27,9 +26,6 @@ app.route('/')
   .get(function (req, res) {
     res.sendFile(process.cwd() + '/views/index.html');
   });
-
-//For FCC testing purposes
-fccTestingRoutes(app);
 
 //Routing for API 
 apiRoutes(app);  

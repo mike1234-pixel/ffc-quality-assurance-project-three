@@ -80,6 +80,7 @@ $( document ).ready(function() {
         // update list
       }
     });
+    alert('All books deleted. Refresh the page.');
   }); 
   
 });

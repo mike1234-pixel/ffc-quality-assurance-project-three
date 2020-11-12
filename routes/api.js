@@ -2,10 +2,9 @@
 
 const expect = require('chai').expect;
 const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
-const MONGODB_CONNECTION_STRING = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.r3vss.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`;
-//Example connection: 
-mongoose.connect(MONGODB_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then((con) => {
+const dotenv = require('dotenv').config({ path: '../.env'});
+//connection:
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then((con) => {
     console.log("DB connection successful.");
   }).catch((err) => console.log(err));
 mongoose.set('debug', true);
@@ -110,7 +109,6 @@ module.exports = function (app) {
           })   
         }
       })
-      //json res format same as .get
     })
     
     .delete(function(req, res){

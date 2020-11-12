@@ -53,10 +53,6 @@
     <hr style='margin: 50px'>
     <div id='sampleui'>
       <h2 style="text-align: left">Sample Front-End:</h2>
-      <form id="newBookForm" class="border">
-        <input type="text" id="bookTitleToAdd" name="title" placeholder="New Book Title" style="width: 295px">
-        <button type="submit" value="Submit" id="newBook">Submit New Book!</button>
-      </form>
       <div id='display'>  
       </div>          
       <div id='bookDetail' class='border'>
@@ -64,16 +60,6 @@
         <ol id='detailComments'></ol>
       </div>
       <button id='deleteAllBooks'>Delete all books...</button>
-      <!--DELETE ONE BOOK -->
-<!-- 
-      <form action="" method="post" id="deleteTest" class="border">
-        <h4>Test delete to /api/books/{bookid}</h4>
-        <br>
-        <input type="text" name="delete-one" value="" id="idDeleteTest" placeholder="enter book id"><br>
-        <input type="submit" value="Submit">
-      </form> -->
-
-      <!---->
     </div>
     <hr style='margin: 50px'>
 
@@ -91,19 +77,6 @@
          $(this).attr('action', "/api/books/" + id);
        });
       });
-
-      // make get request at api/books and with the response create a list of books
-
-// $(function() {
-//   $('#deleteTest').submit(function(){
-//     var id = $('#idDeleteTest').val(); // grab user input
-//       fetch('/api/books/' + id, {
-//           method: 'delete',
-//           headers: {'Content-Type': 'application/json'},
-//           body: JSON.stringify({id: id, token: token})
-//       })
-//   })
-// })
    </script>
   </body>
 </html>
